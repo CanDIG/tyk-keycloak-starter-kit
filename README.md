@@ -1,2 +1,3 @@
-# Tyk-OIDC-Starter-Kit
-A Tyk-based OIDC-compatible solution for secure full stack web development.
+# tyk-oidc-starter-kit
+
+This is the CanDIG solution to full-stack web application deployment with Tyk and any OpenID-compliant service provider.
