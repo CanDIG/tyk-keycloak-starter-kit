@@ -1,0 +1,57 @@
+{
+    "auth_policy": {
+        "access_rights": {
+            "api_auth": {
+                "allowed_urls": [],
+                "api_id": "api_auth",
+                "api_name": "api_auth",
+                "versions": [
+                    "Default"
+                ]
+            }
+        },
+        "active": true,
+        "name": "Auth Policy",
+        "rate": 100,
+        "per": 1,
+        "quota_max": 10000,
+        "quota_renewal_rate": 3600        
+    },
+    "{FRONTEND_POLICY}": {
+        "access_rights": {
+            "{FRONTEND_APP_NAME}": {
+                "allowed_urls": [],
+                "api_id": "{FRONTEND_APP_NAME}",
+                "api_name": "{FRONTEND_APP_NAME}",
+                "versions": [
+                    "Default"
+                ]
+            }
+        },
+        "active": true,
+        "name": "Frontend Policy",
+        "rate": 100,
+        "per": 1,
+        "quota_max": 10000,
+        "quota_renewal_rate": 3600
+    },
+    "{BACKEND_POLICY}": {
+        "active": true,
+        "name": "Backend Policy",
+        "rate": 100,
+        "per": 1,
+        "quota_max": 1000,
+        "quota_remaining": 1000,
+        "quota_renewal_rate": 3600,
+        "access_rights": {
+            "{BACKEND_API_NAME}": {
+                "allowed_urls": [],
+                "api_id": "{BACKEND_API_NAME}",
+                "api_name": "{BACKEND_API_NAME}",
+                "versions": [
+                    "Default"
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "name": "{FRONTEND_APP_NAME}",
+    "slug": "{FRONTEND_APP_NAME}",
+    "listen_port": 0,
+    "protocol": "",
+    "enable_proxy_protocol": false,
+    "api_id": "{FRONTEND_APP_NAME}",
+    "use_oauth2": false,
+    "use_openid": true,
+    "openid_options": {
+      "providers": [
+        {
+          "issuer": "{OIDC_PROVIDER}",
+          "client_ids": {
+            "{BASE_64_OIDC_CLIENT}": "{FRONTEND_POLICY}"
+          }
+        }
+      ],
+      "segregate_by_client": true
+    },
+    "proxy": {
+      "preserve_host_header": false,
+      "listen_path": "{FRONTEND_APP_LISTEN_PATH}",
+      "target_url": "{FRONTEND_APP_TARGET_URL}",
+      "disable_strip_slash": false,
+      "strip_listen_path": true
+    },
+    "disable_rate_limit": false,
+    "disable_quota": false,
+    "custom_middleware": {
+      "pre": [
+        {
+          "name": "frontendAuthMiddleware",
+          "path": "/opt/tyk-gateway/middleware/frontendAuth.js",
+          "require_session": false,
+          "raw_body_only": false
+        }
+      ],
+      "post": []
+    },
+    "custom_middleware_bundle": "",
+    "config_data": {
+      "TYK_SERVER": "{TYK_SERVER_ADDRESS}"
+    },
+    "tag_headers": null
+  }

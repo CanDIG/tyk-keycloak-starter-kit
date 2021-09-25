@@ -1,0 +1,62 @@
+{
+    "name": "{BACKEND_API_NAME}",
+    "slug": "{BACKEND_API_NAME}",
+    "listen_port": 0,
+    "protocol": "",
+    "enable_proxy_protocol": false,
+    "api_id": "{BACKEND_API_NAME}",
+    "org_id": "",
+    "use_keyless": false,
+    "use_oauth2": false,
+    "use_openid": true,
+    "openid_options": {
+      "providers": [
+        {
+          "issuer": "{OIDC_PROVIDER}",
+          "client_ids": {
+            "BASE_64_OIDC_CLIENT": "{BACKEND_POLICY}"
+          }
+        }
+      ],
+      "segregate_by_client": false
+    },
+    "base_identity_provided_by": "",
+    "definition": {
+      "location": "header",
+      "key": "x-api-version",
+      "strip_path": false
+    },
+    "proxy": {
+      "preserve_host_header": false,
+      "listen_path": "{BACKEND_APP_LISTEN_PATH}",
+      "target_url": "{BACKEND_APP_TARGET_URL}",
+      "disable_strip_slash": false,
+      "strip_listen_path": true
+    },
+    "disable_rate_limit": false,
+    "disable_quota": false,
+    "custom_middleware": {
+      "pre": [
+        {
+          "name": "backendAuthMiddleware",
+          "path": "/opt/tyk-gateway/middleware/backendAuth.js",
+          "require_session": false,
+          "raw_body_only": false
+        }
+      ],
+      "post": [],
+      "post_key_auth": []
+    },
+    "custom_middleware_bundle": "",
+    "session_lifetime": 0,
+    "active": true,
+    "internal": false,
+    "config_data": {
+      "TYK_SERVER": ""
+    },
+    "tag_headers": null,
+    "global_rate_limit": {
+      "rate": 100,
+      "per": 1
+    }
+  }
