@@ -2,7 +2,7 @@
 
 This is a starter kit for full-stack web application authentication with Tyk and Keycloak (in progress).
 
-## The Hows of our solution
+## The background of our solution
 
 Our solution is unique, as in that all of the front-end and back-end applications are registered as Tyk APIs. Tyk offers built-in mechanism to work with OpenID-compliant providers, in our case, is Keycloak. Once they're registered as Tyk APIs, your applications are essentially ready for deployment.
 
@@ -26,4 +26,5 @@ The following middlewares utilize the Tyk Virtual Endpoints functionalities.
 ## FAQ
 
 ### Q: Does this solution work with other OpenID-compliant providers, such as Auth0?
-### A: No. However, it is possible to modify the middleware, in particular, the `auth/login` and `auth/logout` for this purpose, this is because `Auth0`, or other OpenID providers have slightly different parameters when redirected for log in.
+A: No. However, it is possible to modify the middleware, in particular, the `virtualLogin.js` and `virtualLogout.js` for this purpose, this is because `Auth0`, or other OpenID providers have slightly different parameters when redirected for log in.
+
